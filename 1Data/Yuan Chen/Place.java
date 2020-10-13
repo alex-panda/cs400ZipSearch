@@ -12,7 +12,7 @@
  * @author Yuan Chen
  *
  */
-public class Place {
+public class Place implements Comparable<Place> {
    private int zipcode;
    private String city;
    private String county;
@@ -116,6 +116,11 @@ public class Place {
       return "Zipcode: " + this.zipcode + "; City: " 
    + this.city + "; County: " + this.county 
    + "; State: " + this.state + ".";
+   }
+
+   @Override
+   public int compareTo(Place p) {
+      return this.zipcode - p.getZipcode();
    }
    
 }
