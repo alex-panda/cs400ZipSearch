@@ -8,6 +8,8 @@
 // Notes to Grader: This class is the one whose main method you run to run the
 //      application.
 
+import java.util.Scanner;
+
 /**
  * This class drives the Zip Search application. When you run its main method,
  *      it allows you to:
@@ -24,6 +26,10 @@ public class CommandLineDriver {
       "======= WELCOME to the UW-Madison Zip Code Manager! =======\n"
         + "Using this command line application you can lookup, add, and remove zipcodes.\n";
 
+  private final static String INVALID_COMMAND =
+      "\nThe command you just entered was invalid.\n"
+          + "Please pick a number from 1 to 5 for its corresponding command.\n";
+
     private final static String MENU =
              "1: See if a zipcode exists in the database.\n"
            + "2: Input a zipcode and get its corresponding city, county, and state.\n"
@@ -38,10 +44,10 @@ public class CommandLineDriver {
      *      results of the choice and inputs.
      * @param args Any arguments for the application.
      */
-    public static main(String[] args) {
+    public static void main(String[] args) {
         // Create the ZipCodeRBT which will, on construction, call the Backend
         //      Class and get the zipcodes
-        zipRBT = new ZipCodeRBT();
+        ZipCodeRBT zipRBT = new ZipCodeRBT();
         System.out.print(WELCOME_MESSAGE);
 
         // The main scanner through which the user will interact with the application
@@ -68,7 +74,7 @@ public class CommandLineDriver {
             int zipcode;
             // The main switch for processing user commands
             switch(command) {
-                case "1": // 1: See if a zipcode exists in the database.
+                case '1': // 1: See if a zipcode exists in the database.
                     System.out.println("Please enter the Zipcode you want to check for:");
                     try {
                         zipcode = Integer.parseInt(scanner.nextLine());
@@ -83,7 +89,7 @@ public class CommandLineDriver {
                         System.out.println("The specified Zipcode does not exist in the database.");
                     break;
 
-                case "2": // 2: Input a zipcode and get its corresponding city, county, and state.
+                case '2': // 2: Input a zipcode and get its corresponding city, county, and state.
                     System.out.println("Please input the Zipcode you want the corresponding city, county, and state of.");
                     try {
                         zipcode = Integer.parseInt(scanner.nextLine());
@@ -93,15 +99,15 @@ public class CommandLineDriver {
                     }
 
                     // Print the place to the screen
-                    Place place = zipRBT.getPlace(zipCode);
-                    placeStr = "";
+                    Place place = zipRBT.getPlace(zipcode);
+                    String placeStr = "";
                     placeStr += "City: " + place.getCity() + ", ";
                     placeStr += "City: " + place.getCounty() + ", ";
                     placeStr += "City: " + place.getState();
                     System.out.println(placeStr);
                     break;
 
-                case "3": // 3: Remove a zipcode from the database.
+                case '3': // 3: Remove a zipcode from the database.
                     System.out.println("Please input the Zipcode you want to remove from the database.");
                     try {
                         zipcode = Integer.parseInt(scanner.nextLine().trim());
@@ -117,7 +123,7 @@ public class CommandLineDriver {
                     }
                     break;
 
-                case "4": // 4: Add a zipcode to the database.
+                case '4': // 4: Add a zipcode to the database.
                     System.out.println("Please input the Zipcode and its information as prompted:");
                     System.out.println("Zipcode:");
                     try {
@@ -142,7 +148,7 @@ public class CommandLineDriver {
                     }
                     break;
 
-                case "5": // 5: Exit the program.
+                case '5': // 5: Exit the program.
                     exitApp = true;
                     break;
             } // End of switch case
