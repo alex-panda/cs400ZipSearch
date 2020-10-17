@@ -256,7 +256,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
         if (silbling != null && !silbling.isBlack) {
           silbling.isBlack = true;
           node.parent.isBlack = false;
-          this.rotate(node.parent.rightChild, node.parent);
+          rotate_Copy(node.parent.rightChild, node.parent);
           silbling = node.parent.rightChild;
         }
         // case 2: sibling is black and sibling's children are both black
@@ -269,7 +269,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
           if (silbling != null && (silbling.rightChild == null || silbling.rightChild.isBlack)) {
             silbling.leftChild.isBlack = true;
             silbling.isBlack = false;
-            rotate(silbling.leftChild, silbling);
+            rotate_Copy(silbling.leftChild, silbling);
             silbling = node.parent.rightChild;
           }
           // case 4: sibling is black sibling's rightChild is red, and its leftChild is black
@@ -277,7 +277,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
             silbling.isBlack = node.parent.isBlack;
             node.parent.isBlack = true;
             silbling.rightChild.isBlack = true;
-            rotate(node.parent.rightChild, node.parent);
+            rotate_Copy(node.parent.rightChild, node.parent);
             node = root;
           }
         }
@@ -287,7 +287,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
         if (silbling != null && !silbling.isBlack) {
           silbling.isBlack = true;
           node.parent.isBlack = false;
-          rotate(node.parent.leftChild, node.parent);
+          rotate_Copy(node.parent.leftChild, node.parent);
           silbling = node.parent.leftChild;
         } else if ((silbling.leftChild == null || silbling.leftChild.isBlack)
             && (silbling.rightChild == null || silbling.rightChild.isBlack)) {
@@ -297,13 +297,13 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
           if (silbling.leftChild == null || silbling.leftChild.isBlack) {
             silbling.rightChild.isBlack = true;
             silbling.isBlack = false;
-            rotate(silbling.rightChild, silbling);
+            rotate_Copy(silbling.rightChild, silbling);
             silbling = node.parent.leftChild;
           } else if (silbling != null) {
             silbling.isBlack = node.parent.isBlack;
             node.parent.isBlack = true;
             silbling.leftChild.isBlack = true;
-            rotate(node.parent.leftChild, node.parent);
+            rotate_Copy(node.parent.leftChild, node.parent);
             node = root;
           }
         }
@@ -319,7 +319,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
    * @param child  - a reference to the child node involved in the rotation
    * @param parent - a reference to the child's parent node involved in the rotation
    */
-  protected void rotate(Node<Place> child, Node<Place> parent) {
+  protected void rotate_Copy(Node<Place> child, Node<Place> parent) {
     // get the parent not of parent, null if parent is the root
     Node<Place> grandParent = parent.parent;
     // store this information for later use to link child with grandParent
