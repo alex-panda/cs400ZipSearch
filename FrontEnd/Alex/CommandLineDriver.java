@@ -102,8 +102,8 @@ public class CommandLineDriver {
                     Place place = zipRBT.getPlace(zipcode);
                     String placeStr = "";
                     placeStr += "City: " + place.getCity() + ", ";
-                    placeStr += "City: " + place.getCounty() + ", ";
-                    placeStr += "City: " + place.getState();
+                    placeStr += "County: " + place.getCounty() + ", ";
+                    placeStr += "State: " + place.getState();
                     System.out.println(placeStr);
                     break;
 

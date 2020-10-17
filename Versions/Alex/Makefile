@@ -16,7 +16,7 @@ CommandLineDriver.class:
 
 # Backend
 ZipCodeRBT.class:
-	ZipCodeRBT.java
+	javac ZipCodeRBT.java
 
 RedBlackTree.class:
 	javac RedBlackTree.java
