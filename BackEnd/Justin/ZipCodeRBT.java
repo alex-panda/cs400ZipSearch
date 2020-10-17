@@ -319,7 +319,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
    * @param child  - a reference to the child node involved in the rotation
    * @param parent - a reference to the child's parent node involved in the rotation
    */
-  private void rotate(Node<Place> child, Node<Place> parent) {
+  protected void rotate(Node<Place> child, Node<Place> parent) {
     // get the parent not of parent, null if parent is the root
     Node<Place> grandParent = parent.parent;
     // store this information for later use to link child with grandParent
