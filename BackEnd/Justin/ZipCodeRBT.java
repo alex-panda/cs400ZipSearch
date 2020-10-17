@@ -20,8 +20,7 @@ import java.util.LinkedList;
  * 
  * @author Justin Qiao
  */
-public class ZipCodeRBT {
-  private RedBlackTree<Place> RBT; // store data in this ZipCodeRBT instance
+public class ZipCodeRBT extends RedBlackTree<Place> {
   private int size; // number of zipCodes stored in the current ZipCodeRBT
 
   /**
@@ -36,13 +35,12 @@ public class ZipCodeRBT {
    * Initializes the ZipCodeRBT instance with data from data wrangler classes.
    */
   private void initialization() {
-    RBT = new RedBlackTree<Place>();
     // get data from the dataLoader
     DataLoader dataLoader = new DataLoader();
     ArrayList<Place> data = dataLoader.getData();
     // insert every Place object from dataLoader to the RBT
     for (int i = 0; i < data.size(); i++)
-      RBT.insert(data.get(i));
+      this.insert(data.get(i));
     size = data.size(); // track the initial size of the RBT
   }
 
@@ -51,7 +49,7 @@ public class ZipCodeRBT {
    * this method to create and test this class with smaller trees.
    */
   public void clear() {
-    RBT = new RedBlackTree<Place>();
+    root = null;
     size = 0;
   }
 
@@ -69,8 +67,8 @@ public class ZipCodeRBT {
    * @return A RedBlackTree.Node<Place> object which contains the given zipcode, null if the given
    *         zipcode does not exist in the ZipCodeRBT
    */
-  protected RedBlackTree.Node<Place> getNode(int zipCode) {
-    RedBlackTree.Node<Place> current = RBT.root; // the current node being compared with the zipCode
+  protected Node<Place> getNode(int zipCode) {
+    Node<Place> current = root; // the current node being compared with the zipCode
     while (current != null) {
       // return current node if zipcode matches
       if (current.data.getZipCode() == zipCode)
@@ -93,7 +91,7 @@ public class ZipCodeRBT {
    *         exist in the ZipCodeRBT
    */
   public Place getPlace(int zipCode) {
-    RedBlackTree.Node<Place> node = getNode(zipCode); // try to get the Node with the given zipcode
+    Node<Place> node = getNode(zipCode); // try to get the Node with the given zipcode
     if (node != null) // if there is any such Node
       return node.data; // return its Place object
     return null; // return null if zipCode does not exist in the ZipCodeRBT
@@ -144,7 +142,7 @@ public class ZipCodeRBT {
     try {
       // if the current tree does not contain the new zipcode, add the new Place
       if (!contains(zipCode)) {
-        RBT.insert(newPlace);
+        this.insert(newPlace);
         size++;
         return true;
       }
@@ -165,10 +163,10 @@ public class ZipCodeRBT {
     if (!contains(zipCode))
       return false;
     // if the given zipCode exists, goto the tree nodes and begin to remove the node
-    RedBlackTree.Node<Place> delete = getNode(zipCode); // the node being deleted
-    RedBlackTree.Node<Place> replace; // helper reference, it points to delete's successor if delete
+    Node<Place> delete = getNode(zipCode); // the node being deleted
+    Node<Place> replace; // helper reference, it points to delete's successor if delete
                                       // have two children, otherwise it points to delete
-    RedBlackTree.Node<Place> childToReconnect; // the replace node's child, it may hold the black
+    Node<Place> childToReconnect; // the replace node's child, it may hold the black
                                                // weight holder node as well
     boolean clearHolder = false; // when this equals true, clear black weight holder after removing
                                  // the node from the tree
@@ -196,7 +194,7 @@ public class ZipCodeRBT {
     }
     // reconnect childToReconnect to the parent of replace
     if (replace.parent == null)
-      RBT.root = childToReconnect;
+      root = childToReconnect;
     else if (replace.isLeftChild())
       replace.parent.leftChild = childToReconnect;
     else
@@ -209,7 +207,7 @@ public class ZipCodeRBT {
       fixColor(childToReconnect);
     // clear black weight holders if needed
     if (clearHolder)
-      clearHolder(RBT.root);
+      clearHolder(root);
     // decrease size by 1 after removal
     size--;
     return true;
@@ -222,18 +220,18 @@ public class ZipCodeRBT {
    * @return a reference to the node's in order successor, null if the node has the largest key in
    *         the ZipCodeRBT, or the given node reference is null
    */
-  private RedBlackTree.Node<Place> successor(RedBlackTree.Node<Place> node) {
+  private Node<Place> successor(Node<Place> node) {
     // return null if node is null
     if (node == null)
       return null;
     if (node.rightChild != null) { // if node has right subtree
-      RedBlackTree.Node<Place> successor = node.rightChild;
+      Node<Place> successor = node.rightChild;
       // find the left most node in its right subtree
       while (successor.leftChild != null)
         successor = successor.leftChild;
       return successor;
     } else {
-      RedBlackTree.Node<Place> successor = node.parent;
+      Node<Place> successor = node.parent;
       // otherwise, find its nearest ancestor that is larger than itself
       while (successor != null && node == successor.rightChild) {
         node = successor;
@@ -249,16 +247,16 @@ public class ZipCodeRBT {
    * 
    * @param node - a reference to the node we begin to restore
    */
-  private void fixColor(RedBlackTree.Node<Place> node) {
-    while (node != RBT.root && node.isBlack) {
+  private void fixColor(Node<Place> node) {
+    while (node != root && node.isBlack) {
       if (node.isLeftChild()) {
         // the node's parent's other child
-        RedBlackTree.Node<Place> silbling = node.parent.rightChild;
+        Node<Place> silbling = node.parent.rightChild;
         // case 1: sibling is red
         if (silbling != null && !silbling.isBlack) {
           silbling.isBlack = true;
           node.parent.isBlack = false;
-          rotate(node.parent.rightChild, node.parent);
+          this.rotate(node.parent.rightChild, node.parent);
           silbling = node.parent.rightChild;
         }
         // case 2: sibling is black and sibling's children are both black
@@ -280,12 +278,12 @@ public class ZipCodeRBT {
             node.parent.isBlack = true;
             silbling.rightChild.isBlack = true;
             rotate(node.parent.rightChild, node.parent);
-            node = RBT.root;
+            node = root;
           }
         }
       } else { // the content of this else block is symmetric to the if block above, with "left" and
                // "right" exchanged
-        RedBlackTree.Node<Place> silbling = node.parent.leftChild;
+        Node<Place> silbling = node.parent.leftChild;
         if (silbling != null && !silbling.isBlack) {
           silbling.isBlack = true;
           node.parent.isBlack = false;
@@ -306,7 +304,7 @@ public class ZipCodeRBT {
             node.parent.isBlack = true;
             silbling.leftChild.isBlack = true;
             rotate(node.parent.leftChild, node.parent);
-            node = RBT.root;
+            node = root;
           }
         }
       }
@@ -321,14 +319,14 @@ public class ZipCodeRBT {
    * @param child  - a reference to the child node involved in the rotation
    * @param parent - a reference to the child's parent node involved in the rotation
    */
-  private void rotate(RedBlackTree.Node<Place> child, RedBlackTree.Node<Place> parent) {
+  private void rotate(Node<Place> child, Node<Place> parent) {
     // get the parent not of parent, null if parent is the root
-    RedBlackTree.Node<Place> grandParent = parent.parent;
+    Node<Place> grandParent = parent.parent;
     // store this information for later use to link child with grandParent
     boolean parentIsLeftChild = parent.isLeftChild();
     // perform right rotation if child is the left child of parent
     if (child.isLeftChild()) {
-      RedBlackTree.Node<Place> rightGrandChild = child.rightChild;
+      Node<Place> rightGrandChild = child.rightChild;
       // fix connection between original parent and child
       child.rightChild = parent;
       parent.parent = child;
@@ -337,7 +335,7 @@ public class ZipCodeRBT {
       if (rightGrandChild != null)
         rightGrandChild.parent = parent;
     } else { // otherwise perform left rotation
-      RedBlackTree.Node<Place> leftGrandChild = child.leftChild;
+      Node<Place> leftGrandChild = child.leftChild;
       // fix connection between original parent and child
       child.leftChild = parent;
       parent.parent = child;
@@ -348,13 +346,13 @@ public class ZipCodeRBT {
     }
     // put the child in its parent's position, and update its connection to the grandParent node
     child.parent = grandParent;
-    if (parent != RBT.root) {
+    if (parent != root) {
       if (parentIsLeftChild)
         grandParent.leftChild = child;
       else
         grandParent.rightChild = child;
     } else // if parent is the root, replace the root by child
-      RBT.root = child;
+      root = child;
   }
 
   /**
@@ -363,7 +361,7 @@ public class ZipCodeRBT {
    * @param child  - a reference to the child node involved in the rotation
    * @param parent - a reference to the child's parent node involved in the rotation
    */
-  private void clearHolder(RedBlackTree.Node<Place> current) {
+  private void clearHolder(Node<Place> current) {
     // find and clear any black weight holder node in the left subtree of the current node, if any
     if (current.leftChild != null) {
       if (current.leftChild.data.getZipCode() == -1) {
@@ -390,10 +388,10 @@ public class ZipCodeRBT {
    */
   protected String colorInorderTraversal() {
     String output = "[";
-    LinkedList<RedBlackTree.Node<Place>> q = new LinkedList<>();
-    q.add(RBT.root);
+    LinkedList<Node<Place>> q = new LinkedList<>();
+    q.add(root);
     while (!q.isEmpty()) {
-      RedBlackTree.Node<Place> next = q.removeFirst();
+      Node<Place> next = q.removeFirst();
       if (next.leftChild != null)
         q.add(next.leftChild);
       if (next.rightChild != null)
@@ -406,19 +404,6 @@ public class ZipCodeRBT {
         output += ", ";
     }
     return output + "]";
-  }
-
-  /**
-   * Displays the current tree Place objects in a in order traversal. For example: "[Zipcode: 14;
-   * City: NULL; County: NULL; State: NULL., Zipcode: 7; City: NULL; County: NULL; State: NULL.,
-   * Zipcode: 16; City: NULL; County: NULL; State: NULL., Zipcode: 1; City: NULL; County: NULL;
-   * State: NULL., Zipcode: 11; City: NULL; County: NULL; State: NULL., Zipcode: 15; City: NULL;
-   * County: NULL; State: NULL., Zipcode: 20; City: NULL; County: NULL; State: NULL.]".
-   * 
-   * @return a String object of the in order traversal
-   */
-  public String toString() {
-    return RBT.toString();
   }
 
 }
