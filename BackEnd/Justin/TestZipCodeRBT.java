@@ -113,23 +113,23 @@ class TestZipCodeRBT {
     test.add(29, "NULL", "NULL", "NULL");
     test.remove(7);
     // store the expected in order traversal
-    String ans = "[Zipcode: 14; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 11; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 20; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 18; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 23; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 29; City: NULL; County: NULL; State: NULL.]";
+    String ans = "[Zipcode: 14, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 11, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 20, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 18, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 23, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 29, City: NULL, County: NULL, State: NULL.]";
     // store the expected color in order traversal
     String color = "[Black, Black, Red, Black, Black, Red]";
     if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
       fail("Failed to remove 7.");
     // case 1.2: D is red, R is black
     test.remove(20);
-    ans = "[Zipcode: 14; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 11; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 23; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 18; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 29; City: NULL; County: NULL; State: NULL.]";
+    ans = "[Zipcode: 14, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 11, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 23, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 18, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 29, City: NULL, County: NULL, State: NULL.]";
     color = "[Black, Black, Red, Black, Black]";
     if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
       fail("Failed to remove 20.");
@@ -145,13 +145,13 @@ class TestZipCodeRBT {
     test.add(23, "NULL", "NULL", "NULL");
     test.add(29, "NULL", "NULL", "NULL");
     test.remove(18);
-    ans = "[Zipcode: 14; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 7; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 23; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 1; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 11; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 20; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 29; City: NULL; County: NULL; State: NULL.]";
+    ans = "[Zipcode: 14, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 7, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 23, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 1, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 11, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 20, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 29, City: NULL, County: NULL, State: NULL.]";
     // resulting color is different from class note but still valid
     color = "[Black, Black, Red, Red, Red, Black, Black]";
     if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
@@ -167,13 +167,13 @@ class TestZipCodeRBT {
     test.add(23, "NULL", "NULL", "NULL");
     test.add(21, "NULL", "NULL", "NULL");
     test.remove(19);
-    ans = "[Zipcode: 14; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 7; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 21; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 1; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 11; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 20; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 23; City: NULL; County: NULL; State: NULL.]";
+    ans = "[Zipcode: 14, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 7, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 21, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 1, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 11, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 20, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 23, City: NULL, County: NULL, State: NULL.]";
     // resulting color is different from class note but still valid
     color = "[Black, Black, Red, Red, Red, Black, Black]";
     if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
@@ -189,13 +189,13 @@ class TestZipCodeRBT {
     test.add(23, "NULL", "NULL", "NULL");
     test.add(15, "NULL", "NULL", "NULL");
     test.remove(23);
-    ans = "[Zipcode: 14; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 7; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 16; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 1; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 11; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 15; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 20; City: NULL; County: NULL; State: NULL.]";
+    ans = "[Zipcode: 14, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 7, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 16, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 1, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 11, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 15, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 20, City: NULL, County: NULL, State: NULL.]";
     // resulting color is different from class note but still valid
     color = "[Black, Black, Red, Red, Red, Black, Black]";
     if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
@@ -211,13 +211,13 @@ class TestZipCodeRBT {
     test.add(24, "NULL", "NULL", "NULL");
     test.add(19, "NULL", "NULL", "NULL");
     test.remove(24);
-    ans = "[Zipcode: 14; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 7; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 19; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 1; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 11; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 16; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 20; City: NULL; County: NULL; State: NULL.]";
+    ans = "[Zipcode: 14, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 7, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 19, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 1, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 11, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 16, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 20, City: NULL, County: NULL, State: NULL.]";
     // resulting color is different from class note but still valid
     color = "[Black, Black, Red, Red, Red, Black, Black]";
     if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
@@ -230,8 +230,8 @@ class TestZipCodeRBT {
     test.add(1, "NULL", "NULL", "NULL");
     test.remove(1); // make the tree all black
     test.remove(14);
-    ans = "[Zipcode: 20; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 7; City: NULL; County: NULL; State: NULL.]";
+    ans = "[Zipcode: 20, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 7, City: NULL, County: NULL, State: NULL.]";
     color = "[Black, Red]";
     if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
       fail("Failed to remove 14.");
@@ -246,11 +246,11 @@ class TestZipCodeRBT {
     test.add(5, "NULL", "NULL", "NULL");
     test.remove(23);
     test.remove(20);
-    ans = "[Zipcode: 7; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 6; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 14; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 5; City: NULL; County: NULL; State: NULL.,"
-        + " Zipcode: 8; City: NULL; County: NULL; State: NULL.]";
+    ans = "[Zipcode: 7, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 6, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 14, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 5, City: NULL, County: NULL, State: NULL.,"
+        + " Zipcode: 8, City: NULL, County: NULL, State: NULL.]";
     color = "[Black, Black, Black, Red, Red]";
     if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
       fail("Failed to remove 20.");
