@@ -18,8 +18,6 @@ public class Place implements Comparable<Place> {
    private String city;
    private String county;
    private String state;
-   private Place left;
-   private Place right;
    private boolean isBlack;
    
    /**
@@ -30,8 +28,6 @@ public class Place implements Comparable<Place> {
       this.city = "";
       this.county = "";
       this.state = "";
-      this.left = null;
-      this.right = null;
       this.isBlack = false;
    }
    
@@ -43,8 +39,6 @@ public class Place implements Comparable<Place> {
       this.city = city;
       this.county = county;
       this.state = state;
-      this.left = null;
-      this.right = null;
       this.isBlack = false;
    }
    
@@ -78,22 +72,6 @@ public class Place implements Comparable<Place> {
 
    public void setZipcode(int zipcode) {
       this.zipcode = zipcode;
-   }
-
-   public Place getLeft() {
-      return left;
-   }
-
-   public void setLeft(Place left) {
-      this.left = left;
-   }
-
-   public Place getRight() {
-      return right;
-   }
-
-   public void setRight(Place right) {
-      this.right = right;
    }
 
    public boolean isBlack() {
