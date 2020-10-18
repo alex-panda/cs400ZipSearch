@@ -2,6 +2,7 @@
 // Name: Yuan Chen   
 // Email: chen2243@wisc.edu
 // Team: DC
+// Role: Front end developer
 // TA: Yelun
 // Lecturer: Gary Dahl
 // Notes to Grader: <optional extra notes>
@@ -78,14 +79,6 @@ public class Place implements Comparable<Place> {
    
    public void setState(String state) {
       this.state = state;
-   }
-
-   public int getZipcode() {
-      return zipcode;
-   }
-
-   public void setZipcode(int zipcode) {
-      this.zipcode = zipcode;
    }
 
    public Place getLeft() {
