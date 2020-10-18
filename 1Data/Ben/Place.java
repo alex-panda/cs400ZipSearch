@@ -1,3 +1,11 @@
+// --== CS400 File Header Information ==--
+// Name: Benjamin Ryan Wurster
+// Email: bwurster@wisc.edu
+// Team: DC
+// TA: Yelun
+// Lecturer: Gary Dahl
+// Notes to Grader: None
+
 /**
  * Place class for Data Loader
  * @author Ben

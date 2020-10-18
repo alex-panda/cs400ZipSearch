@@ -1,3 +1,11 @@
+// --== CS400 File Header Information ==--
+// Name: Benjamin Ryan Wurster
+// Email: bwurster@wisc.edu
+// Team: DC
+// TA: Yelun
+// Lecturer: Gary Dahl
+// Notes to Grader: None
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
