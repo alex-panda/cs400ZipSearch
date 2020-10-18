@@ -4,6 +4,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Data Loader class
+ * @author Ben
+ *
+ */
 public class DataLoader {
 	private ArrayList<Place> zipcodeList;// arraylist of the places
 	private String csvPath;
@@ -25,6 +30,10 @@ public class DataLoader {
 		this.readData(this.csvPath);
 	}
 
+	/**
+	 * Reads data from csv into Place objects and adds them to arraylist field
+	 * @param csvPath
+	 */
 	private void readData(String csvPath) {
 		try {
 			BufferedReader csvReader = new BufferedReader(new FileReader(csvPath));
@@ -41,6 +50,10 @@ public class DataLoader {
 		}
 	}
 
+	/**
+	 * Getter method for arraylist of places
+	 * @return
+	 */
 	public ArrayList<Place> getData() {
 		return this.zipcodeList;
 	}
