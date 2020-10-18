@@ -25,7 +25,7 @@ public class DataLoader {
 	 * Default constructor. Loads csv from same directory.
 	 */
 	public DataLoader() {
-		this("zipcode_clean.csv");
+		this("uszips.csv");
 	}
 
 	/**
@@ -48,7 +48,7 @@ public class DataLoader {
 			String row = csvReader.readLine(); // Assigns header row
 			while((row = csvReader.readLine()) != null) {
 				String[] arrayRow = row.split(",");
-				this.zipcodeList.add(new Place(Integer.parseInt(arrayRow[0]), arrayRow[1], arrayRow[3], arrayRow[2]));
+				this.zipcodeList.add(new Place(Integer.parseInt(arrayRow[0]), arrayRow[1], arrayRow[4], arrayRow[3]));
 			}
 			csvReader.close();
 		} catch (FileNotFoundException e) {

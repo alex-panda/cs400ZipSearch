@@ -43,7 +43,8 @@ public class Place implements Comparable<Place> {
 	 */
 	@Override
 	public String toString() {
-		return "City: " + this.city + ", County: " + this.county + ", State: " + this.state;
+		return "Zipcode " + this.zipcode + ": " + this.city + ", " + this.state + " (" + this.county
+				+ " county)";
 	}
 
 	/**
