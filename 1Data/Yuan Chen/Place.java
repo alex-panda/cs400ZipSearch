@@ -18,7 +18,6 @@ public class Place implements Comparable<Place> {
    private String city;
    private String county;
    private String state;
-   private boolean isBlack;
    
    /**
     * Default constructor
@@ -28,7 +27,6 @@ public class Place implements Comparable<Place> {
       this.city = "";
       this.county = "";
       this.state = "";
-      this.isBlack = false;
    }
    
    /**
@@ -39,7 +37,6 @@ public class Place implements Comparable<Place> {
       this.city = city;
       this.county = county;
       this.state = state;
-      this.isBlack = false;
    }
    
    public String getCity() {
@@ -72,14 +69,6 @@ public class Place implements Comparable<Place> {
 
    public void setZipCode(int zipcode) {
       this.zipcode = zipcode;
-   }
-
-   public boolean isBlack() {
-      return isBlack;
-   }
-
-   public void setBlack(boolean isBlack) {
-      this.isBlack = isBlack;
    }
    
    public String toString() {
