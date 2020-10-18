@@ -48,15 +48,6 @@ public class Place implements Comparable<Place> {
       this.isBlack = false;
    }
    
-   
-   public int getZipCode() {
-      return zipcode;
-   }
-   
-   public void setZipCode(int zipCode) {
-      this.zipcode = zipCode;
-   }
-   
    public String getCity() {
       return city;
    }
@@ -79,6 +70,14 @@ public class Place implements Comparable<Place> {
    
    public void setState(String state) {
       this.state = state;
+   }
+
+   public int getZipcode() {
+      return zipcode;
+   }
+
+   public void setZipcode(int zipcode) {
+      this.zipcode = zipcode;
    }
 
    public Place getLeft() {
