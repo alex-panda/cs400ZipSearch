@@ -8,6 +8,7 @@
 
 /**
  * Place class for Data Loader
+ * 
  * @author Ben
  *
  */
@@ -43,12 +44,13 @@ public class Place implements Comparable<Place> {
 	 */
 	@Override
 	public String toString() {
-		return "Zipcode " + this.zipcode + ": " + this.city + ", " + this.state + " (" + this.county
-				+ " county)";
+		return "Zipcode: " + this.zipcode + ", City: " + this.city + ", County: " + this.county
+				+ ", State: " + this.state + ".";
 	}
 
 	/**
 	 * zipcode getter
+	 * 
 	 * @return zipcode
 	 */
 	public int getZipCode() {
@@ -57,6 +59,7 @@ public class Place implements Comparable<Place> {
 
 	/**
 	 * zipcode setter
+	 * 
 	 * @param zipcode
 	 */
 	public void setZipCode(int zipcode) {
@@ -65,6 +68,7 @@ public class Place implements Comparable<Place> {
 
 	/**
 	 * city getter
+	 * 
 	 * @return city
 	 */
 	public String getCity() {
@@ -73,6 +77,7 @@ public class Place implements Comparable<Place> {
 
 	/**
 	 * city setter
+	 * 
 	 * @param city
 	 */
 	public void setCity(String city) {
@@ -81,6 +86,7 @@ public class Place implements Comparable<Place> {
 
 	/**
 	 * Country getter
+	 * 
 	 * @return country
 	 */
 	public String getCounty() {
@@ -89,6 +95,7 @@ public class Place implements Comparable<Place> {
 
 	/**
 	 * country setter
+	 * 
 	 * @param county
 	 */
 	public void setCounty(String county) {
@@ -97,6 +104,7 @@ public class Place implements Comparable<Place> {
 
 	/**
 	 * state getter
+	 * 
 	 * @return state
 	 */
 	public String getState() {
@@ -105,6 +113,7 @@ public class Place implements Comparable<Place> {
 
 	/**
 	 * state setter
+	 * 
 	 * @param state
 	 */
 	public void setState(String state) {
@@ -113,6 +122,7 @@ public class Place implements Comparable<Place> {
 
 	/**
 	 * left getter
+	 * 
 	 * @return left
 	 */
 	public Place getLeft() {
@@ -121,6 +131,7 @@ public class Place implements Comparable<Place> {
 
 	/**
 	 * left setter
+	 * 
 	 * @param left
 	 */
 	public void setLeft(Place left) {
@@ -129,6 +140,7 @@ public class Place implements Comparable<Place> {
 
 	/**
 	 * right getter
+	 * 
 	 * @return right
 	 */
 	public Place getRight() {
@@ -137,6 +149,7 @@ public class Place implements Comparable<Place> {
 
 	/**
 	 * right setter
+	 * 
 	 * @param right
 	 */
 	public void setRight(Place right) {
@@ -145,6 +158,7 @@ public class Place implements Comparable<Place> {
 
 	/**
 	 * isBlack getter
+	 * 
 	 * @return isBlack
 	 */
 	public boolean getIsBlack() {
@@ -153,6 +167,7 @@ public class Place implements Comparable<Place> {
 
 	/**
 	 * isBlack setter
+	 * 
 	 * @param isBlack
 	 */
 	public void isBlack(boolean isBlack) {
