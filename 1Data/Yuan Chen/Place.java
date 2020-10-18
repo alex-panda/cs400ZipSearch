@@ -66,11 +66,11 @@ public class Place implements Comparable<Place> {
       this.state = state;
    }
 
-   public int getZipcode() {
+   public int getZipCode() {
       return zipcode;
    }
 
-   public void setZipcode(int zipcode) {
+   public void setZipCode(int zipcode) {
       this.zipcode = zipcode;
    }
 
@@ -90,7 +90,7 @@ public class Place implements Comparable<Place> {
 
    @Override
    public int compareTo(Place p) {
-      return this.zipcode - p.getZipcode();
+      return this.zipcode - p.getZipCode();
    }
    
 }
