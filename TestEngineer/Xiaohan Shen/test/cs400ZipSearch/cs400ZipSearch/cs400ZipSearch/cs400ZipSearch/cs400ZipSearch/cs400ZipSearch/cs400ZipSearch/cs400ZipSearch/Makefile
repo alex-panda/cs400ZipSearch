@@ -1,4 +1,4 @@
-run: CommandLineDriver.class ZipCodeRBT.class RedBlackTree.class DataLoader.class Place.class
+run: CommandLineDriver.class CommandLineDriver.class ZipCodeRBT.class RedBlackTree.class DataLoader.class Place.class
 	java CommandLineDriver
 
 testAll: testDataWrangler testBackEnd
@@ -6,7 +6,7 @@ testAll: testDataWrangler testBackEnd
 testBackEnd: BackEndFrontEndTestSuite.class
 	java -jar junit5.jar -cp . --scan-classpath -n BackEndFrontEndTestSuite
 
-testDataWrangler: DataWranglerTestSuite.class
+testDataWrangler: 
 	java -jar junit5.jar -cp . --scan-classpath -n DataWranglerTestSuite
 
 clean:

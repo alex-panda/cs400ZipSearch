@@ -1,4 +1,4 @@
-run: CommandLineDriver.class ZipCodeRBT.class RedBlackTree.class DataLoader.class Place.class
+run: CommandLineDriver.class CommandLineDriver.class ZipCodeRBT.class RedBlackTree.class DataLoader.class Place.class
 	java CommandLineDriver
 
 testAll: testDataWrangler testBackEnd

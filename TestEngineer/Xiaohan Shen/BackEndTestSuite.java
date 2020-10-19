@@ -24,6 +24,37 @@ public class BackEndTestSuite {
     }
 
     /**
+     * Tests whether contains() functions correctly.
+     */
+    @Test
+    public void testContains(){
+        try {
+            ZipCodeRBT testRBT = new ZipCodeRBT();
+            // testRBT contains these zipcodes
+            if (!testRBT.contains(1050)){
+                fail("contains() failed to find existing zip code 1050");
+            }
+            if (!testRBT.contains(63338)){
+                fail("contains() failed to find existing zip code 63338");
+            }
+            if (!testRBT.contains(90078)){
+                fail("contains() failed to find existing zip code 90078");
+            }
+            // testRBT does not contain these zipcodes
+            if (testRBT.contains(1)){
+                fail("contains() returns true when zip code 1 does not exist");
+            }
+            if (testRBT.contains(99951)){
+                fail("contains() returns true when zip code 99951 does not exist");
+            }
+            if (testRBT.contains(99952)){
+                fail("contains() returns true when zip code 99952 does not exist");
+            }
+        } catch (Exception e) {
+            fail("contains() threw an unexpected exception " + e.getMessage());
+        }
+    }
+    /**
      * This method checks whether the ZipCodeRBT getters functions properly. Test fails when the
      * getters fail to get the expected data, or any unexpected Exceptions occurs.
      */
@@ -110,7 +141,7 @@ public class BackEndTestSuite {
                 + " Zipcode: 29, City: NULL, County: NULL, State: NULL.]";
         // store the expected color in order traversal
         String color = "[Black, Black, Red, Black, Black, Red]";
-        if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
+        if (!test.toString().equals(ans) || !test.colorLevelOrderTraversal().equals(color))
             fail("Failed to remove 7.");
         // case 1.2: D is red, R is black
         test.remove(20);
@@ -120,7 +151,7 @@ public class BackEndTestSuite {
                 + " Zipcode: 18, City: NULL, County: NULL, State: NULL.,"
                 + " Zipcode: 29, City: NULL, County: NULL, State: NULL.]";
         color = "[Black, Black, Red, Black, Black]";
-        if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
+        if (!test.toString().equals(ans) || !test.colorLevelOrderTraversal().equals(color))
             fail("Failed to remove 20.");
         // case 2.1 S is black and has at least 1 red child
         // sub-case right-right
@@ -143,7 +174,7 @@ public class BackEndTestSuite {
                 + " Zipcode: 29, City: NULL, County: NULL, State: NULL.]";
         // resulting color is different from class note but still valid
         color = "[Black, Black, Red, Red, Red, Black, Black]";
-        if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
+        if (!test.toString().equals(ans) || !test.colorLevelOrderTraversal().equals(color))
             fail("Failed to remove 18.");
         // sub-case right-left
         test.clear();
@@ -165,7 +196,7 @@ public class BackEndTestSuite {
                 + " Zipcode: 23, City: NULL, County: NULL, State: NULL.]";
         // resulting color is different from class note but still valid
         color = "[Black, Black, Red, Red, Red, Black, Black]";
-        if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
+        if (!test.toString().equals(ans) || !test.colorLevelOrderTraversal().equals(color))
             fail("Failed to remove 19.");
         // sub-case left-left
         test.clear();
@@ -187,7 +218,7 @@ public class BackEndTestSuite {
                 + " Zipcode: 20, City: NULL, County: NULL, State: NULL.]";
         // resulting color is different from class note but still valid
         color = "[Black, Black, Red, Red, Red, Black, Black]";
-        if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
+        if (!test.toString().equals(ans) || !test.colorLevelOrderTraversal().equals(color))
             fail("Failed to remove 23.");
         // sub-case left-left
         test.clear();
@@ -209,7 +240,7 @@ public class BackEndTestSuite {
                 + " Zipcode: 20, City: NULL, County: NULL, State: NULL.]";
         // resulting color is different from class note but still valid
         color = "[Black, Black, Red, Red, Red, Black, Black]";
-        if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
+        if (!test.toString().equals(ans) || !test.colorLevelOrderTraversal().equals(color))
             fail("Failed to remove 17.");
         // case 2.2: S and both its children are black
         test.clear();
@@ -222,7 +253,7 @@ public class BackEndTestSuite {
         ans = "[Zipcode: 20, City: NULL, County: NULL, State: NULL.,"
                 + " Zipcode: 7, City: NULL, County: NULL, State: NULL.]";
         color = "[Black, Red]";
-        if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
+        if (!test.toString().equals(ans) || !test.colorLevelOrderTraversal().equals(color))
             fail("Failed to remove 14.");
         // case 2.3: S is red
         test.clear();
@@ -241,7 +272,7 @@ public class BackEndTestSuite {
                 + " Zipcode: 5, City: NULL, County: NULL, State: NULL.,"
                 + " Zipcode: 8, City: NULL, County: NULL, State: NULL.]";
         color = "[Black, Black, Black, Red, Red]";
-        if (!test.toString().equals(ans) || !test.colorInorderTraversal().equals(color))
+        if (!test.toString().equals(ans) || !test.colorLevelOrderTraversal().equals(color))
             fail("Failed to remove 20.");
     }
 

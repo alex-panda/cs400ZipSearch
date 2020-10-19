@@ -60,7 +60,4 @@ public class DataLoader {
       return this.zipcodeList;
    }
       
-   public static void main(String[] args) {
-	   DataLoader dataloader = new DataLoader();
-   }
 }

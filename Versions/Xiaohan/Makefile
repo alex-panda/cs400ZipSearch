@@ -1,12 +1,12 @@
-run: CommandLineDriver.class CommandLineDriver.class ZipCodeRBT.class RedBlackTree.class DataLoader.class Place.class
+run: CommandLineDriver.class ZipCodeRBT.class RedBlackTree.class DataLoader.class Place.class
 	java CommandLineDriver
 
 testAll: testDataWrangler testBackEnd
 
-testBackEnd: BackEndTestSuite.class
-	java -jar junit5.jar -cp . --scan-classpath -n BackEndTestSuite
+testBackEnd: BackEndFrontEndTestSuite.class
+	java -jar junit5.jar -cp . --scan-classpath -n BackEndFrontEndTestSuite
 
-testDataWrangler: 
+testDataWrangler: DataWranglerTestSuite.class
 	java -jar junit5.jar -cp . --scan-classpath -n DataWranglerTestSuite
 
 clean:
@@ -15,8 +15,8 @@ clean:
 DataWranglerTestSuite.class: junit5.jar DataWranglerTestSuite.java
 	javac -cp .:junit5.jar DataWranglerTestSuite.java
 
-BackEndTestSuite.class: junit5.jar BackEndTestSuite.java
-	javac -cp .:junit5.jar BackEndTestSuite.java
+BackEndFrontEndTestSuite.class: junit5.jar BackEndFrontEndTestSuite.java
+	javac -cp .:junit5.jar BackEndFrontEndTestSuite.java
 
 junit5.jar: 
 	wget http://pages.cs.wisc.edu/~cs400/junit5.jar

@@ -23,20 +23,23 @@ import java.util.Scanner;
 public class CommandLineDriver {
 
     private final static String WELCOME_MESSAGE =
-      "======= WELCOME to the UW-Madison Zip Code Manager! =======\n"
-        + "Using this command line application you can lookup, add, and remove zipcodes.\n";
+      "\n======= WELCOME to the UW-Madison Zip Code Manager! =======\n"
+        + "Using this command line application you can lookup, add, and remove Zipcodes.\n";
 
   private final static String INVALID_COMMAND =
       "\nThe command you just entered was invalid.\n"
           + "Please pick a number from 1 to 5 for its corresponding command.\n";
 
     private final static String MENU =
-             "1: See if a zipcode exists in the database.\n"
-           + "2: Input a zipcode and get its corresponding city, county, and state.\n"
-           + "3: Remove a zipcode from the database.\n"
-           + "4: Add a zipcode to the database.\n"
+             "1: See if a Zipcode exists in the database.\n"
+           + "2: Input a Zipcode and get its corresponding city, county, and state.\n"
+           + "3: Remove a Zipcode from the database.\n"
+           + "4: Add a Zipcode to the database.\n"
            + "5: Exit the program.\n"
            + "Please enter a command:\n";
+
+    private final static String NEXT_COMMAND =
+      "================ Next Command ================\n";
 
     /**
      * The main method that drives the application. When run, this method
@@ -55,14 +58,19 @@ public class CommandLineDriver {
 
         boolean exitApp = false;
 
+        // How many commands have been put into the application
+        int i = 0;
+
         // This is an infinite loop until the user quits the application
         while (true) {
             char command;
 
             // Loop to ask the user for a command until they give a valid command.
             while (true) {
+                if (i > 0) System.out.print(NEXT_COMMAND);
                 System.out.print(MENU);
                 String word = scanner.nextLine();
+                i++;
                 if (word.length() >= 1) {
                     command = word.charAt(0);
                     if ('1' <= command && command <= '5')
@@ -100,11 +108,15 @@ public class CommandLineDriver {
 
                     // Print the place to the screen
                     Place place = zipRBT.getPlace(zipcode);
-                    String placeStr = "";
-                    placeStr += "City: " + place.getCity() + ", ";
-                    placeStr += "County: " + place.getCounty() + ", ";
-                    placeStr += "State: " + place.getState();
-                    System.out.println(placeStr);
+                    if (place != null) {
+                        String placeStr = "";
+                        placeStr += "City: " + place.getCity() + ", ";
+                        placeStr += "County: " + place.getCounty() + ", ";
+                        placeStr += "State: " + place.getState();
+                        System.out.println(placeStr);
+                    } else {
+                        System.out.println("ERROR: The Zipcode Entered was not in the database.");
+                    }
                     break;
 
                 case '3': // 3: Remove a zipcode from the database.
@@ -152,6 +164,7 @@ public class CommandLineDriver {
                     exitApp = true;
                     break;
             } // End of switch case
+            System.out.println(""); // Print newline after input to seperate inputs
             if (exitApp) break;
         } // End of while loop
         scanner.close();

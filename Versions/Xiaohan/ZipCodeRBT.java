@@ -17,7 +17,7 @@ import java.util.LinkedList;
  * size, clear functions. It also provide in order traversal of the Place objects stored in the
  * tree. Some private methods are included to help with maintaining RBT properties, and some
  * protected methods are provided for test engineers to test the functionality of this class.
- *
+ * 
  * @author Justin Qiao
  */
 public class ZipCodeRBT extends RedBlackTree<Place> {
@@ -62,7 +62,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
 
   /**
    * Gets a specific Node in the ZipCodeRBT with the given zipCode, if any.
-   *
+   * 
    * @param zipCode - the zipcode corresponding to the Node being acquired
    * @return A RedBlackTree.Node<Place> object which contains the given zipcode, null if the given
    *         zipcode does not exist in the ZipCodeRBT
@@ -85,7 +85,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
 
   /**
    * Gets a specific Place object in the ZipCodeRBT with the given zipCode, if any.
-   *
+   * 
    * @param zipCode - the zipcode corresponding to the Place being acquired
    * @return A Place object which contains the given zipcode, null if the given zipcode does not
    *         exist in the ZipCodeRBT
@@ -99,7 +99,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
 
   /**
    * Checks whether a zipCode exists in the current ZipCodeRBT.
-   *
+   * 
    * @param zipCode - the zipcode being checked
    * @return true if it exists, false otherwise
    */
@@ -111,7 +111,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
 
   /**
    * Returns the number of Place object stored in the ZipCodeRBT instance calling this method.
-   *
+   * 
    * @return size of the ZipCodeRBT instance
    */
   public int size() {
@@ -120,7 +120,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
 
   /**
    * Checks whether the ZipCodeRBT is empty.
-   *
+   * 
    * @param zipCode - the zipcode being checked
    * @return true if it exists, false otherwise
    */
@@ -130,7 +130,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
 
   /**
    * Adds a new Place to the current ZipCodeRBT.
-   *
+   * 
    * @param zipCode - an int value of the new Place
    * @param city    - a String of the city name of the new Place
    * @param county  - a String of the county name of the new Place
@@ -154,7 +154,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
 
   /**
    * Adds a Place with the given zipCode from the current ZipCodeRBT if it exists.
-   *
+   * 
    * @param zipCode - an int value of the Place being removed
    * @return true if new Place removed, false otherwise
    */
@@ -165,9 +165,9 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
     // if the given zipCode exists, goto the tree nodes and begin to remove the node
     Node<Place> delete = getNode(zipCode); // the node being deleted
     Node<Place> replace; // helper reference, it points to delete's successor if delete
-                                      // have two children, otherwise it points to delete
+                         // have two children, otherwise it points to delete
     Node<Place> childToReconnect; // the replace node's child, it may hold the black
-                                               // weight holder node as well
+                                  // weight holder node as well
     boolean clearHolder = false; // when this equals true, clear black weight holder after removing
                                  // the node from the tree
     // set the replace reference as described above
@@ -215,7 +215,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
 
   /**
    * Helper method to find the in order successor of a node in the ZipCodeRBT.
-   *
+   * 
    * @param node - a reference to the node asking for its successor
    * @return a reference to the node's in order successor, null if the node has the largest key in
    *         the ZipCodeRBT, or the given node reference is null
@@ -244,7 +244,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
   /**
    * Helper method to restore the RBT color properties of the ZipCodeRBT. The idea of this method
    * comes from class reading: http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/chap14.htm
-   *
+   * 
    * @param node - a reference to the node we begin to restore
    */
   private void fixColor(Node<Place> node) {
@@ -315,7 +315,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
   /**
    * Helper method to perform BST rotation for the ZipCodeRBT. re-coloring is not involved in this
    * helper method. This method is very similar to that in RedBlackTree.java.
-   *
+   * 
    * @param child  - a reference to the child node involved in the rotation
    * @param parent - a reference to the child's parent node involved in the rotation
    */
@@ -357,7 +357,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
 
   /**
    * Recursive helper method to clear any black weight holder created be the remove method.
-   *
+   * 
    * @param child  - a reference to the child node involved in the rotation
    * @param parent - a reference to the child's parent node involved in the rotation
    */
@@ -381,12 +381,12 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
   }
 
   /**
-   * Displays the current tree node colors in a in order traversal. The color can be either Black or
-   * Red, not both. For example: "[Black, Black, Red, Red, Red, Black, Black]".
-   *
-   * @return a String object with the color of the ZipCodeRBT nodes in in order traversal
+   * Displays the current tree node colors in a level order traversal. The color can be either Black
+   * or Red, not both. For example: "[Black, Black, Red, Red, Red, Black, Black]".
+   * 
+   * @return a String object with the color of the ZipCodeRBT nodes in level order traversal
    */
-  protected String colorInorderTraversal() {
+  protected String colorLevelOrderTraversal() {
     String output = "[";
     LinkedList<Node<Place>> q = new LinkedList<>();
     q.add(root);
