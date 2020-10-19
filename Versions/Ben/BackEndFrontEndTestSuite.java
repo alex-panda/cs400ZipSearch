@@ -1,12 +1,22 @@
+// --== CS400 File Header Information ==--
+// Name: Xiaohan Shen
+// Email: xshen97@wisc.edu
+// Team: DC
+// TA: Yelun
+// Lecturer: Gary Dahl
+// Notes to Grader: None
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Back end test suite that checks whether back end code functions correctly.
+ * Front end and back end test suite that checks
+ * whether the methods in back end called by front end code
+ * functions correctly.
  *
  * @author Xiaohan Shen
  */
-public class BackEndTestSuite {
+public class BackEndFrontEndTestSuite {
     /**
      * This method checks whether the ZipCodeRBT constructor functions properly. Test fails when the
      * tree is not initialized properly, or any unexpected Exceptions occurs.
