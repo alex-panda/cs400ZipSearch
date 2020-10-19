@@ -187,7 +187,7 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
     else if (replace.isBlack && replace.leftChild == null && replace.rightChild == null) {
       // create the blackWeightHolder if replace is black with no child
       Place blackWeighHolder = new Place(-1, "NULL", "NULL", "NULL");
-      childToReconnect = new RedBlackTree.Node<Place>(blackWeighHolder);
+      childToReconnect = new Node<Place>(blackWeighHolder);
       childToReconnect.isBlack = true;
       childToReconnect.parent = replace.parent;
       clearHolder = true; // make a not to clear the holder after removal
