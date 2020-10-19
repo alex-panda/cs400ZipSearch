@@ -1,3 +1,11 @@
+// --== CS400 File Header Information ==--
+// Name: Xiaohan Shen
+// Email: xshen97@wisc.edu
+// Team: DC
+// TA: Yelun
+// Lecturer: Gary Dahl
+// Notes to Grader: None
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
