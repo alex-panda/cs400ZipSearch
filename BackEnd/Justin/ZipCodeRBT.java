@@ -165,9 +165,9 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
     // if the given zipCode exists, goto the tree nodes and begin to remove the node
     Node<Place> delete = getNode(zipCode); // the node being deleted
     Node<Place> replace; // helper reference, it points to delete's successor if delete
-                                      // have two children, otherwise it points to delete
+                         // have two children, otherwise it points to delete
     Node<Place> childToReconnect; // the replace node's child, it may hold the black
-                                               // weight holder node as well
+                                  // weight holder node as well
     boolean clearHolder = false; // when this equals true, clear black weight holder after removing
                                  // the node from the tree
     // set the replace reference as described above
@@ -381,12 +381,12 @@ public class ZipCodeRBT extends RedBlackTree<Place> {
   }
 
   /**
-   * Displays the current tree node colors in a in order traversal. The color can be either Black or
-   * Red, not both. For example: "[Black, Black, Red, Red, Red, Black, Black]".
+   * Displays the current tree node colors in a level order traversal. The color can be either Black
+   * or Red, not both. For example: "[Black, Black, Red, Red, Red, Black, Black]".
    * 
-   * @return a String object with the color of the ZipCodeRBT nodes in in order traversal
+   * @return a String object with the color of the ZipCodeRBT nodes in level order traversal
    */
-  protected String colorInorderTraversal() {
+  protected String colorLevelOrderTraversal() {
     String output = "[";
     LinkedList<Node<Place>> q = new LinkedList<>();
     q.add(root);
