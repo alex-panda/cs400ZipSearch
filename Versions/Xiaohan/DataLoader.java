@@ -9,7 +9,7 @@ import java.util.ArrayList;
 // Email: chen2243@wisc.edu
 // Team: DC
 // Role: Data Wrangler
-// TA: Yelun
+// TA: Yelun Bao
 // Lecturer: Gary Dahl
 // Notes to Grader: <optional extra notes>
 
