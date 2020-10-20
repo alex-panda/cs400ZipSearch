@@ -2,7 +2,7 @@
 // Name: Yuan Chen   
 // Email: chen2243@wisc.edu
 // Team: DC
-// Role: Front end developer
+// Role: Data Wrangler
 // TA: Yelun
 // Lecturer: Gary Dahl
 // Notes to Grader: <optional extra notes>
