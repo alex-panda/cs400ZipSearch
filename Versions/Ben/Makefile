@@ -1,11 +1,10 @@
-# --== CS400 File Header Information ==--
-# Name: Xiaohan Shen
-# Email: xshen97@wisc.edu
-# Team: DC
-# Role: Test Engineer
-# TA: Yelun Bao
-# Lecturer: Gary Dahl
-# Notes to Grader: None
+// --== CS400 File Header Information ==--
+// Name: Xiaohan Shen
+// Email: xshen97@wisc.edu
+// Team: DC
+// TA: Yelun
+// Lecturer: Gary Dahl
+// Notes to Grader: None
 
 run: CommandLineDriver.class ZipCodeRBT.class RedBlackTree.class DataLoader.class Place.class
 	java CommandLineDriver

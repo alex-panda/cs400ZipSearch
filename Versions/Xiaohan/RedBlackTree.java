@@ -2,6 +2,7 @@
 // Name: Xiaohan Shen
 // Email: xshen97@wisc.edu
 // Team: DC
+// Role: Test Engineer
 // TA: Yelun Bao
 // Lecturer: Gary Dahl
 // Notes to Grader: None

@@ -2,6 +2,7 @@
 // Name: Benjamin Ryan Wurster
 // Email: bwurster@wisc.edu
 // Team: DC
+// Role: Data Wrangler
 // TA: Yelun
 // Lecturer: Gary Dahl
 // Notes to Grader: None
