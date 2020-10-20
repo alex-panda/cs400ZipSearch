@@ -2,6 +2,7 @@
 // Name: Yuan Chen   
 // Email: chen2243@wisc.edu
 // Team: DC
+// Role: Data Wrangler
 // TA: Yelun
 // Lecturer: Gary Dahl
 // Notes to Grader: <optional extra notes>
@@ -17,9 +18,6 @@ public class Place implements Comparable<Place> {
    private String city;
    private String county;
    private String state;
-   private Place left;
-   private Place right;
-   private boolean isBlack;
    
    /**
     * Default constructor
@@ -29,9 +27,6 @@ public class Place implements Comparable<Place> {
       this.city = "";
       this.county = "";
       this.state = "";
-      this.left = null;
-      this.right = null;
-      this.isBlack = false;
    }
    
    /**
@@ -42,85 +37,72 @@ public class Place implements Comparable<Place> {
       this.city = city;
       this.county = county;
       this.state = state;
-      this.left = null;
-      this.right = null;
-      this.isBlack = false;
    }
    
+   /**
+    * city getter
+    * @return city name of the zipcode
+    */
+   public String getCity() {return city;}
    
-   public int getZipCode() {
-      return zipcode;
-   }
+   /**
+    * city mutator
+    * @param set the name of the city
+    */
+   public void setCity(String city) {this.city = city;}
    
-   public void setZipCode(int zipCode) {
-      this.zipcode = zipCode;
-   }
+   /**
+    * county getter
+    * @return county name of the zipcode
+    */
+   public String getCounty() {return county;}
    
-   public String getCity() {
-      return city;
-   }
+   /**
+    * county mutator
+    * @param set the name of the county
+    */
+   public void setCounty(String county) {this.county = county;}
    
-   public void setCity(String city) {
-      this.city = city;
-   }
+   /**
+    * state getter
+    * @return state name of the zipcode
+    */
+   public String getState() {return state;}
    
-   public String getCounty() {
-      return county;
-   }
-   
-   public void setCounty(String county) {
-      this.county = county;
-   }
-   
-   public String getState() {
-      return state;
-   }
-   
-   public void setState(String state) {
-      this.state = state;
-   }
+   /**
+    * state mutator
+    * @param set the name of the state
+    */
+   public void setState(String state) {this.state = state;}
 
-   public int getZipcode() {
-      return zipcode;
-   }
-
-   public void setZipcode(int zipcode) {
-      this.zipcode = zipcode;
-   }
-
-   public Place getLeft() {
-      return left;
-   }
-
-   public void setLeft(Place left) {
-      this.left = left;
-   }
-
-   public Place getRight() {
-      return right;
-   }
-
-   public void setRight(Place right) {
-      this.right = right;
-   }
-
-   public boolean isBlack() {
-      return isBlack;
-   }
-
-   public void setBlack(boolean isBlack) {
-      this.isBlack = isBlack;
-   }
+   /**
+    * zipcode getter
+    * @return zipcode
+    */
+   public int getZipCode() {return zipcode;}
    
+   /**
+    * zipcode mutator
+    * @param zipcode
+    */
+   public void setZipCode(int zipcode) {this.zipcode = zipcode;}
+   
+   /**
+    * the method return a string contains the information of the zipcode
+    */
    public String toString() {
-      return "Zipcode: " + this.zipcode + "; City: " 
-   + this.city + "; County: " + this.county 
-   + "; State: " + this.state + ".";
+      return "Zipcode: " + this.zipcode + ", City: " 
+   + this.city + ", County: " + this.county 
+   + ", State: " + this.state + ".";
    }
-
+   
+   /**
+    * this method extends the function of Comparable()
+    * and allows the program to compare two Place objects
+    */
    @Override
    public int compareTo(Place p) {
-      return this.zipcode - p.getZipcode();
+      return this.zipcode - p.getZipCode();
    }
    
 }

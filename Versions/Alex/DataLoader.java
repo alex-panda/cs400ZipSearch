@@ -1,16 +1,17 @@
+// --== CS400 File Header Information ==--
+// Name: Yuan Chen
+// Email: chen2243@wisc.edu
+// Team: DC
+// Role: Data Wrangler
+// TA: Yelun
+// Lecturer: Gary Dahl
+// Notes to Grader: <optional extra notes>
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
-// --== CS400 File Header Information ==--
-// Name: Yuan Chen   
-// Email: chen2243@wisc.edu
-// Team: DC
-// TA: Yelun
-// Lecturer: Gary Dahl
-// Notes to Grader: <optional extra notes>
 
 /**
  * This class reads a csv file and store the data in an array list
@@ -19,21 +20,27 @@ import java.util.ArrayList;
  *
  */
 public class DataLoader {
-   private ArrayList<Place> zipcodeList;
-   private String csvPath;
-   
+   private ArrayList<Place> zipcodeList;//an array list stores all the place objects
+   private String csvPath;//path of the zipcode data file
+
+   //default constructor
    public DataLoader() {
       this.csvPath = "zipcode_clean.csv";
       this.zipcodeList = new ArrayList<>();
       readData(csvPath);
    }
-   
+
+   //constructor with a specific path of the data file
    public DataLoader(String csvPath) {
       this.csvPath = csvPath;
       this.zipcodeList = new ArrayList<>();
       readData(csvPath);
    }
-   
+
+   /**
+    * This method read the .csv file with the raw data
+    * and store them in a array list
+    */
    public void readData(String csvPath) {
       try {
          BufferedReader br = new BufferedReader(new FileReader(csvPath));
@@ -45,7 +52,7 @@ public class DataLoader {
             int zipcode = Integer.parseInt(zipcodeInfo[0]);
             String city = zipcodeInfo[1];
             String state = zipcodeInfo[2];
-            String county = zipcodeInfo[3];            
+            String county = zipcodeInfo[3];
             zipcodeList.add(new Place(zipcode, city, county, state));
          }
          br.close();
@@ -55,9 +62,13 @@ public class DataLoader {
          e.printStackTrace();
      }
    }
-   
+
+   /**
+    * @return the array list with the place objects
+    */
+
    public ArrayList<Place> getData() {
       return this.zipcodeList;
    }
-      
+
 }
