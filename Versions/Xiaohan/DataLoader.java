@@ -8,6 +8,7 @@ import java.util.ArrayList;
 // Name: Yuan Chen   
 // Email: chen2243@wisc.edu
 // Team: DC
+// Role: Data Wrangler
 // TA: Yelun
 // Lecturer: Gary Dahl
 // Notes to Grader: <optional extra notes>
